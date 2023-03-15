@@ -65,11 +65,21 @@ export default function Register() {
     event.preventDefault();
     if (handleValidation()) {
       const { email, username, password } = values;
-      const { data } = await axios.post(registerRoute, {
-        username,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        registerRoute,
+        {
+          username,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
 
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
