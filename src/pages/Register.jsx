@@ -66,7 +66,7 @@ export default function Register() {
     if (handleValidation()) {
       const { email, username, password } = values;
       const { data } = await axios.post(
-        registerRoute,
+        "https://chat-application-8ml8.onrender.com/api/auth/register",
         {
           username,
           email,

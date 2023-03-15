@@ -44,7 +44,7 @@ export default function Login() {
     if (validateForm()) {
       const { username, password } = values;
       const { data } = await axios.post(
-        loginRoute,
+        "https://chat-application-8ml8.onrender.com/api/auth/login",
         {
           username,
           password,
